@@ -11,6 +11,7 @@ import {
   serverTimestamp,
   updateDoc,
 } from "firebase/firestore";
+// @ts-ignore
 import { db } from "./firebase.js";
 
 type Team = "1조" | "2조" | "3조";
@@ -113,7 +114,7 @@ export default function App() {
 
     setTimeout(() => map.invalidateSize(), 300);
 
-    const startLongPress = (e: L.LeafletMouseEvent) => {
+    const startLongPress = (e: any) => {
       if (longPressTimerRef.current) window.clearTimeout(longPressTimerRef.current);
       longPressTimerRef.current = window.setTimeout(() => {
         setEditingId(null);
